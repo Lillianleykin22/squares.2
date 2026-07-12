@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>snake</title>
+</head>
+<style>
+    body {
+        direction: rtl;
+            font-size: 30px;
+            background-color: yellow;
+        }
+    .greenText {
+        background-color: lightgreen;
+        width: 80%;
+        margin-right: 10%;
+        margin-top: 30px;
+        padding: 10px;
+        text-align: center;
+    }
+        td{
+            height: 20px;
+            width: 20px;
+            border: 1px solid black;
+        }
+        table{margin: 0 auto;}
+        tr:nth-child(even) td:nth-child(even){
+            background-color: lightcoral;
+        }
+        tr:nth-child(odd) td:nth-child(odd) {
+            background-color: lightblue;
+        }
+        tr:hover{
+            background-color: lightcoral;}
+
+
+    .greenbutton {
+        background-color: green;
+        color: white;
+        width: 30%;
+        font-size: 24px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body>
+<h1 class="greenText">
+    משחק סנייק
+</h1>
+<div class = "greenText">לחץ על הכפתור הירוק
+<button>להתחלת משחק חדש</button>
+</div>
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+            
+</table>
+<script>
+    let numOfCols = 20;
+    let numOfRows = 20;
+    let borad = [];
+    for (let i = 0; i < numOfRows; i++) {
+        borad[i] = ([]);
+        for (let j = 0; j < numOfCols; j++) {
+            borad[i].push(0);
+        }
+    }
+    console.log(borad);
+</script>
+</body>
+</html>
