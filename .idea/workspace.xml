@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3913c977-bbeb-4155-9681-bd81f39b102a" name="Changes" comment="" />
+    <list default="true" id="3913c977-bbeb-4155-9681-bd81f39b102a" name="Changes" comment="משחק צבעים">
+      <change beforePath="$PROJECT_DIR$/squares.html" beforeDir="false" afterPath="$PROJECT_DIR$/squares.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,63 +22,75 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Lillianleykin22"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Lillianleykin22/squares.2.git",
+    "accountId": "1ed2c884-272b-4b6a-a9d8-29904b1ecb22"
+  }
+}]]></component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000106100007" />
-      <entry key="MS500" value="1.025418099941629" />
-      <entry key="S2" value="1.3992875517220702" />
-      <entry key="S5" value="1.6926683675951502" />
-      <entry key="S10" value="1.8394806539639617" />
-      <entry key="S30" value="2.4200033420761624" />
-      <entry key="S60" value="3.7015497560576596" />
-      <entry key="M2" value="6.911730979006553" />
-      <entry key="M5" value="16.589565701175257" />
-      <entry key="M10" value="27.05120981281313" />
-      <entry key="M15" value="34.33205508341769" />
-      <entry key="M30" value="54.62086048267" />
-      <entry key="H1" value="97.21563467031345" />
-      <entry key="H2" value="163.68590140392172" />
-      <entry key="H4" value="231.37226149671946" />
-      <entry key="D1" value="323.7204452643884" />
-      <entry key="W1" value="344.38739383099556" />
+      <entry key="MS100" value="2.5502754407769342E-130" />
+      <entry key="MS500" value="1.2844373180864595E-26" />
+      <entry key="S2" value="5.966295979848859E-7" />
+      <entry key="S5" value="0.006090002765948095" />
+      <entry key="S10" value="0.13602390442696288" />
+      <entry key="S30" value="1.2856217324322365" />
+      <entry key="S60" value="2.791677531610062" />
+      <entry key="M2" value="5.267118098423766" />
+      <entry key="M5" value="12.574598873042554" />
+      <entry key="M10" value="24.23305254902679" />
+      <entry key="M15" value="34.66793127743953" />
+      <entry key="M30" value="61.0291693117112" />
+      <entry key="H1" value="107.56134275902309" />
+      <entry key="H2" value="179.80225150861486" />
+      <entry key="H4" value="256.8507972794529" />
+      <entry key="D1" value="367.1489075982706" />
+      <entry key="W1" value="392.53787887076896" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="8.500998588941768E-172" />
-      <entry key="S2" value="1.7075266329286801E-43" />
-      <entry key="S5" value="7.816864824774617E-18" />
-      <entry key="S10" value="2.83602309693818E-9" />
-      <entry key="S30" value="0.0019439898694983452" />
-      <entry key="S60" value="0.08299366802543043" />
-      <entry key="M2" value="0.6968930781777307" />
-      <entry key="M5" value="3.111067989897077" />
-      <entry key="M10" value="5.7352008221042405" />
-      <entry key="M15" value="7.57962683354551" />
-      <entry key="M30" value="12.94040215496806" />
-      <entry key="H1" value="25.525136628163136" />
-      <entry key="H2" value="47.255051287883276" />
-      <entry key="H4" value="70.55290114824497" />
-      <entry key="D1" value="103.27908387692445" />
-      <entry key="W1" value="110.6999355279224" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0002793974279838" />
+      <entry key="S2" value="1.1477842952255908" />
+      <entry key="S5" value="1.6439216629274984" />
+      <entry key="S10" value="2.1145030079433553" />
+      <entry key="S30" value="2.6748236558269403" />
+      <entry key="S60" value="3.0723596998786573" />
+      <entry key="M2" value="3.639598667521668" />
+      <entry key="M5" value="4.989830545765807" />
+      <entry key="M10" value="7.584509570786172" />
+      <entry key="M15" value="10.058511887682469" />
+      <entry key="M30" value="16.568225369784678" />
+      <entry key="H1" value="29.399522500740577" />
+      <entry key="H2" value="51.87179412884677" />
+      <entry key="H4" value="77.46820331474399" />
+      <entry key="D1" value="115.52114507624161" />
+      <entry key="W1" value="124.4297904062024" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.40895103058688176" />
-      <entry key="MS500" value="0.8529696608269787" />
-      <entry key="S2" value="1.3158854229228552" />
-      <entry key="S5" value="1.6465414129065998" />
-      <entry key="S10" value="1.8120332012728346" />
-      <entry key="S30" value="2.3661011679205948" />
-      <entry key="S60" value="3.6938575699942064" />
-      <entry key="M2" value="7.495202032788325" />
-      <entry key="M5" value="19.587040866783973" />
-      <entry key="M10" value="32.69626003089107" />
-      <entry key="M15" value="41.837327470839824" />
-      <entry key="M30" value="67.50659286082112" />
-      <entry key="H1" value="122.69661819037293" />
-      <entry key="H2" value="210.9062735434969" />
-      <entry key="H4" value="301.9015582275665" />
-      <entry key="D1" value="426.9941947179333" />
-      <entry key="W1" value="455.0865229300476" />
+      <entry key="MS100" value="4.735434033570455E-7" />
+      <entry key="MS500" value="0.05434068765336682" />
+      <entry key="S2" value="0.5399679338892931" />
+      <entry key="S5" value="1.1889837853434815" />
+      <entry key="S10" value="1.9089892373733002" />
+      <entry key="S30" value="3.762611850132797" />
+      <entry key="S60" value="5.695401740156767" />
+      <entry key="M2" value="8.761251453482014" />
+      <entry key="M5" value="17.456851685478433" />
+      <entry key="M10" value="31.728886627271745" />
+      <entry key="M15" value="44.6463681616865" />
+      <entry key="M30" value="77.53198965029702" />
+      <entry key="H1" value="136.90807273024484" />
+      <entry key="H2" value="231.633263086009" />
+      <entry key="H4" value="334.291246621837" />
+      <entry key="D1" value="482.66371454051455" />
+      <entry key="W1" value="516.9667082096909" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -137,8 +151,25 @@
       <updated>1783158366541</updated>
       <workItem from="1783158367545" duration="3982000" />
       <workItem from="1783260688757" duration="11166000" />
-      <workItem from="1783864804262" duration="2500000" />
+      <workItem from="1783864804262" duration="4304000" />
     </task>
+    <task id="LOCAL‎-00001" summary="משחק צבעים">
+      <option name="closed" value="true" />
+      <created>1783868041412</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1783868041413</updated>
+    </task>
+    <task id="LOCAL‎-00002" summary="משחק צבעים">
+      <option name="closed" value="true" />
+      <created>1783868063273</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1783868063273</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,5 +185,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="משחק צבעים" />
+    <option name="LAST_COMMIT_MESSAGE" value="משחק צבעים" />
   </component>
 </project>
