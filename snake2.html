@@ -20,7 +20,7 @@
     }
         td{
             height: 20px;
-            width: 20px;
+            width: 30px;
             border: 1px solid black;
         }
         table{margin: 0 auto;}
@@ -44,6 +44,27 @@
         border-radius: 8px;
         cursor: pointer;
     }
+    #gameboard{
+        margin: 0 auto;
+        width: 600px;
+        display: grid;
+        grid-template-columns: repeat(20, 30px);
+        grid-template-rows: repeat(20, 30px);
+        background-color: white;
+        border: 1px solid black;
+        box-sizing: border-box;
+
+    }
+    #gameboard div{
+        border: 1px solid black;
+    }
+    .food{
+        background-color: lightgreen;
+    }.snake{
+        background-color: red;
+    }.snakeHead{
+        background-color: #780202;
+    }
 
 </style>
 </head>
@@ -54,140 +75,116 @@
 <div class = "greenText">לחץ על הכפתור הירוק
 <button>להתחלת משחק חדש</button>
 </div>
-<table>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-            
-</table>
+<div id="gameboard"></div>
 <script>
+    const CellValues ={
+        EMPTY:0,
+        FOOD:5,
+        SNAKE:10,
+        SNAKE_HEAD:4,
+    }
     let numOfCols = 20;
     let numOfRows = 20;
-    let borad = [];
+    let board = [];
     for (let i = 0; i < numOfRows; i++) {
-        borad[i] = ([]);
-        for (let j = 0; j < numOfCols; j++) {
-            borad[i].push(0);
+
+    }
+    console.log(board);
+    function CreatBoard(){
+        for (let i = 0; i < numOfRows; i++) {
+            board[i] = [];
+            for (let j = 0; j < numOfCols; j++) {
+                board[i].push(CellValues.EMPTY);
+            }
         }
     }
-    console.log(borad);
+    function AddFood(){
+        let row, col;
+        do {
+            col = Math.floor(Math.random() * numOfCols);
+            row = Math.floor(Math.random() * numOfRows);
+        }
+        while(board[row][col] !== CellValues.EMPTY)
+        board[row][col] = CellValues.FOOD;
+    }
+    function ShowBoardWithInnerHTML(){
+        let brd = document.getElementById("gameboard");
+        let str = "";
+        str += "<table>";
+        for (let r = 0; r < numOfRows; r++) {
+            str += "<tr>";
+            for (let c = 0; c < numOfCols; c++) {
+                if(board [r][c] === CellValues.FOOD) {
+                    str += "<td class = 'food'></td>";
+                }
+                else {
+                    str += "<td></td>";
+                }
+            }
+            str += "</tr>";
+        }
+        str += "</table>";
+        brd.innerHTML = str;
+    }
+    function ShowBoard(){
+        let brd = document.getElementById("gameboard");
+        let tbl = document.getElementById("table");
+        for (let r = 0; r < numOfRows; r++) {
+            let tr = document.createElement("tr");
+            for (let c = 0; c < numOfCols; c++) {
+                let td = document.createElement("td");
+                if (board [r][c] === CellValues.SNAKE) {
+                    td.classList.add("snake");
+                }else if (board [r][c] === CellValues.FOOD) {
+                    td.classList.add("food");
+                }
+                tr.appendChild(td);
+            }
+            tbl.appendChild(tr);
+        }
+        brd.appendChild(tbl);
+    }
+    function ShowBoardWithDiv() {
+        let brd = document.getElementById("gameboard");
+        for (let r = 0; r < numOfRows; r++) {
+            for (let c = 0; c < numOfCols; c++) {
+                let el = document.createElement("div");
+                switch(board[r][c]){
+                    case CellValues.SNAKE:     el.classList.add("snake");    break;
+                    case CellValues.SNAKE_HEAD:el.classList.add("snakeHead");break;
+                    case CellValues.FOOD:      el.classList.add("food");     break;
+                }
+            brd.appendChild(el);
+            }
+        }
+    }
+    let tail;
+    function InitSnake() {
+        board [5][0] = CellValues.SNAKE;
+        board [5][1] = CellValues.SNAKE;
+        board [5][2] = CellValues.SNAKE_HEAD;
+        tail = {r:5, c:0};
+    }
+    function moveLeft(){
+        for(let r = 0; r < numOfRows; r++) {
+            for (let c = 0; c < numOfCols; c++) {
+                if (board[r][c] === CellValues.SNAKE_HEAD) {
+                    board[r][c + 1] = CellValues.SNAKE_HEAD;
+                    board[r][c + 2] = CellValues;
+                    board[tail.r] [tail.c] = CellValues.EMPTY;
+                    return
+                }
+            }
+        }
+    }
+
+    CreatBoard();
+    InitSnake();
+    moveLeft();
+    AddFood();
+    ShowBoardWithDiv();
+    console.log(board);
+
 </script>
 </body>
 </html>
