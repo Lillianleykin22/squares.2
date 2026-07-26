@@ -1,13 +1,97 @@
 <!DOCTYPE html>
-<html lang="heb">
+<html lang="he" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>סוכן קריירה AI</title>
+    <style>
+        body{
+            direction: rtl;
+            text-align: right;
+            box-sizing: border-box;
+            border-color: crimson;
+        }
+        .screen{
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        .title{
+            width: 100%;
+            text-align: center;
+            background-color: blueviolet;
+            border-color: darkmagenta;
+            color: white;
+        }
+        .button{
+            width: 100%;
+            text-align: center;
+            border-color: black;
+        }
+    </style>
 </head>
 <body>
-<details>
-    מה שמך?
-    <input name="">
+<div class="screen"></div>
+<div class= "tabletext-center"></div>
+<div class="container"></div>
+<div onclick="click()" class="screen"
+<main> סוכן קריירה AI</main>
+<aside class="screen"></aside>
+<label>
+   שם מלא
+    </label>
+<input type = "text" id = "name">
+<br><br>
+<label>
+    גיל
+</label>
+<input type = "text" id = "age">
+<label>
+    תאריך לידה
+</label>
+<input type = "text" id = "birthdate">
+<label>
+    עיר מגורים
+</label>
+<input type = "text" id = "city">
+<label>
+    מה למדת?
+</label>
+<input type = "text" id = "profession">
+<label>
+    מה את יודעת?
+</label>
+<input type = "text" id = "knowledge">
+<label>
+    לאן רוצה להגיע?
+</label>
+<input type = "text" id = "experience">
+<button onclick="analyze()" class="button">נתח אותי!</button>
+<div id = "result"></div>
 
 </body>
+<script>
+    function analyze(str)
+    {
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const birthdate = document.getElementById("birthdate").value;
+      const profession = document.getElementById("profession").value;
+      const city = document.getElementById("city").value;
+      const knowledge = document.getElementById("knowledge").value;
+      const experience = document.getElementById("experience").value;
+      if(!name || !profession || !knowledge)
+      {
+          alert('נא למלא שם, מקצוע וכישורים')
+          return;
+      }
+        document.getElementById("result").innerHTML =
+            'שם: ' + name + '<br>' +
+            'גיל: ' + age + '<br>' +
+            'עיר: ' + city + '<br>' +
+            'מקצוע: ' + profession + '<br>' +
+            'כישורים: ' + knowledge + '<br>' +
+            'מטרה: ' + experience;
+    }
+</script>
 </html>
