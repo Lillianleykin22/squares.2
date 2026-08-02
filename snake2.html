@@ -76,6 +76,14 @@
     #newGameBtn {
         display: none;
     }
+    #controls {
+        margin: 20px auto;
+        width: 150px;
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: repeat(3, 50px);
+        gap: 5px;
+    }
 
 
 </style>
@@ -85,6 +93,7 @@
     משחק סנייק
 </h1>
     <button id="newGameBtn">להתחלת משחק חדש</button>
+<div id="controls"></div>
 <div id="gameboard"></div>
 <script>
     const CellValues ={
@@ -200,7 +209,7 @@
         let head =snake[0];
         let newCol = head.c+1;
         let newRow = head.r;
-        if (newCol <= numOfCols) {
+        if (newCol >= numOfCols) {
             EndGame("פגעת בקיר!");
             return;
         }
@@ -234,7 +243,7 @@
         let head =snake[0];
         let newRow = head.r + 1;
         let newCol = head.c;
-        if (newRow <= numOfRows) {
+        if (newRow >= numOfRows) {
             EndGame("פגעת בקיר!");
             return;
         }
@@ -249,38 +258,46 @@
     function CreateLeftButton(){
         let btn = document.createElement("button");
         btn.textContent = "שמאלה";
+        btn.style.gridRow = "2";
+        btn.style.gridColumn = "1";
         btn.addEventListener("click", function () {
             moveLeft();
             ShowBoardWithDiv();
         });
-        document.body.appendChild(btn);
+        document.getElementById("controls").appendChild(btn);
     }
     function CreateRightButton() {
         let btn = document.createElement("button");
         btn.textContent = "ימינה";
+        btn.style.gridRow = "2";
+        btn.style.gridColumn = "3";
         btn.addEventListener("click", function () {
             moveRight();
             ShowBoardWithDiv();
         });
-        document.body.appendChild(btn);
+        document.getElementById("controls").appendChild(btn);
     }
     function CreateUpButton() {
         let btn = document.createElement("button");
         btn.textContent = "למעלה";
+        btn.style.gridRow = "1";
+        btn.style.gridColumn = "2";
         btn.addEventListener("click", function () {
             moveUp();
             ShowBoardWithDiv();
         });
-        document.body.appendChild(btn);
+        document.getElementById("controls").appendChild(btn);
     }
     function CreateDownButton() {
         let btn = document.createElement("button");
         btn.textContent = "למטה";
+        btn.style.gridRow = "3";
+        btn.style.gridColumn = "2";
         btn.addEventListener("click", function () {
             moveDown();
             ShowBoardWithDiv();
         });
-        document.body.appendChild(btn);
+        document.getElementById("controls").appendChild(btn);
     }
     function EndGame(message){
         alert(message);
