@@ -73,6 +73,9 @@
         .snakeHead {
             background-color: #780202;
         }
+    #newGameBtn {
+        display: none;
+    }
 
 
 </style>
@@ -81,9 +84,7 @@
 <h1 class="greenText">
     משחק סנייק
 </h1>
-<div class = "greenText">לחץ על הכפתור הירוק
-<button>להתחלת משחק חדש</button>
-</div>
+    <button id="newGameBtn">להתחלת משחק חדש</button>
 <div id="gameboard"></div>
 <script>
     const CellValues ={
@@ -182,22 +183,68 @@
     function moveLeft(){
         console.log("moveLeft");
         let head =snake[0];
-                    snake.unshift({r:head.r, c:head.c + 1});
-                    board[head.r][head.c + 1] = CellValues.SNAKE_HEAD;
-                    board[head.r][head.c] = CellValues.SNAKE;
-                    let tail = snake.pop();
-                    board[tail.r] [tail.c] = CellValues.EMPTY;
+        let newCol = head.c-1;
+        let newRow = head.r;
+        if (newCol < 0) {
+            EndGame("פגעת בקיר!");
+            return;
+        }
+                    snake.unshift({r:newRow, c:newCol});
+        let tail = snake.pop();
+        board[tail.r] [tail.c] = CellValues.EMPTY;
+        board[newRow][newCol] = CellValues.SNAKE_HEAD;
+        board[head.r][head.c] = CellValues.SNAKE;
     }
     function moveRight(){
         console.log("moveRight");
         let head =snake[0];
         let newCol = head.c+1;
         let newRow = head.r;
+        if (newCol <= numOfCols) {
+            EndGame("פגעת בקיר!");
+            return;
+        }
         snake.unshift({r:newRow, c:newCol});
-        board[newRow][newCol] = CellValues.SNAKE_HEAD;
-        board[head.r][head.c] = CellValues.SNAKE;
         let tail = snake.pop();
         board[tail.r] [tail.c] = CellValues.EMPTY;
+        console.log("snake'", snake)
+        board[newRow][newCol] = CellValues.SNAKE_HEAD;
+        board[head.r][head.c] = CellValues.SNAKE;
+
+    }
+    function moveUp(){
+        console.log("moveUp");
+        let head =snake[0];
+        let newRow = head.r - 1;
+        let newCol = head.c;
+        if (newRow < 0) {
+            EndGame("פגעת בקיר!");
+            return;
+        }
+        snake.unshift({r:newRow, c:newCol});
+        let tail = snake.pop();
+        board[tail.r] [tail.c] = CellValues.EMPTY;
+        console.log("snake'", snake)
+        board[newRow][newCol] = CellValues.SNAKE_HEAD;
+        board[head.r][head.c] = CellValues.SNAKE;
+
+    }
+    function moveDown(){
+        console.log("moveDown");
+        let head =snake[0];
+        let newRow = head.r + 1;
+        let newCol = head.c;
+        if (newRow <= numOfRows) {
+            EndGame("פגעת בקיר!");
+            return;
+        }
+        snake.unshift({r:newRow, c:newCol});
+        let tail = snake.pop();
+        board[tail.r] [tail.c] = CellValues.EMPTY;
+        console.log("snake'", snake)
+        board[newRow][newCol] = CellValues.SNAKE_HEAD;
+        board[head.r][head.c] = CellValues.SNAKE;
+
     }
     function CreateLeftButton(){
         let btn = document.createElement("button");
@@ -217,16 +264,38 @@
         });
         document.body.appendChild(btn);
     }
+    function CreateUpButton() {
+        let btn = document.createElement("button");
+        btn.textContent = "למעלה";
+        btn.addEventListener("click", function () {
+            moveUp();
+            ShowBoardWithDiv();
+        });
+        document.body.appendChild(btn);
+    }
+    function CreateDownButton() {
+        let btn = document.createElement("button");
+        btn.textContent = "למטה";
+        btn.addEventListener("click", function () {
+            moveDown();
+            ShowBoardWithDiv();
+        });
+        document.body.appendChild(btn);
+    }
+    function EndGame(message){
+        alert(message);
+    }
 
 
-        CreatBoard();
-        InitSnake();
-        moveLeft()
-        moveRight()
-        AddFood();
-        ShowBoardWithDiv();
-        CreateLeftButton();
-        CreateRightButton();
+    CreatBoard();
+    InitSnake();
+    AddFood();
+    ShowBoardWithDiv();
+    CreateLeftButton();
+    CreateRightButton();
+    CreateUpButton();
+    CreateDownButton();
+        document.getElementById("gamestartMsg").style.display = "none";
         console.log(board);
 
 
