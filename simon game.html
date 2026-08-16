@@ -5,10 +5,11 @@
     <title>משחק סיימון</title>
 </head>
 <body>
+<h1>משחק סיימון</h1>
 <div id="gamestart"></div>
 <div id="score"></div>
 <div id="gameover"></div>
-<div id = "newgame"></div>
+<div id = "newgame">התחל מחדש</div>
 <div id = "buttonscontainer">
     <div class="redbutton" id="red"></div>
     <div class="greenbutton" id="green"></div>
@@ -19,6 +20,43 @@
 <style>
     body {
         text-align: center;
+        background-color: #fdf6ec;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        background-color: antiquewhite;
+        font-size: 42px;
+        margin: 40px auto 20px auto;
+        letter-spacing: 2px;
+        padding: 20px;
+        width: fit-content;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .redbutton, .greenbutton, .bluebutton, .yellowbutton {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .redbutton:active, .greenbutton:active, .bluebutton:active, .yellowbutton:active {
+        transform: scale(0.95);
+    }
+    #score{
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #222;
+        margin-top: 40px;
+    }
+    #gameover{
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #222;
+        margin-top: 40px;
+        min-height: 30px;
     }
         #buttonscontainer {
             display: grid;
@@ -69,11 +107,28 @@
     .flash {
         opacity: 0.5;
     }
+    #newgame {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.2s;
+    }
+
+    #newgame:hover {
+        background-color: #555;
+    }
 </style>
 <script>
     let score = 0;
     const colors = ["red", "green", "blue", "yellow"];
     let gameSequence = [];
+    let userClickedPattern = [];
     function getRandomColor() {
         let randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
@@ -90,8 +145,74 @@
             button.classList.remove("flash");
         }, 300);
     }
-    nextSequence();
-    flashButton(gameSequence[0]);
+    function playSequence() {
+        for (let i = 0; i < gameSequence.length; i++) {
+            setTimeout(function() {
+                flashButton(gameSequence[i]);
+            }, i * 600);
+        }
+    }
+    let currentLevel = 0;
+    let gameActive = true;
+    let buttons = document.querySelectorAll("#buttonscontainer div");
+
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            if (!gameActive) {
+                return;
+            }
+
+            let userChosenColor = this.id;
+            flashButton(userChosenColor);
+            userClickedPattern.push(userChosenColor);
+
+            checkAnswer(currentLevel);
+
+            currentLevel++;
+        });
+    });
+
+    function checkAnswer(currentLevel) {
+        if (userClickedPattern[currentLevel] === gameSequence[currentLevel]) {
+
+            if (userClickedPattern.length === gameSequence.length) {
+                score++;
+                document.getElementById("score").textContent = "Score: " + score;
+
+                setTimeout(function() {
+                    userClickedPattern = [];
+                    currentLevel = 0;
+                    nextSequence();
+                    playSequence();
+                }, 1000);
+            }
+
+        } else {
+            gameActive = false;
+            document.getElementById("gameover").textContent = "משחק נגמר! הניקוד הסופי שלך: " + score;
+
+            setTimeout(function() {
+                startNewGame();
+            }, 1500);
+        }
+    }
+    function startNewGame() {
+        score = 0;
+        gameSequence = [];
+        userClickedPattern = [];
+        currentLevel = 0;
+        gameActive = true;
+
+        document.getElementById("score").textContent = "";
+        document.getElementById("gameover").textContent = "";
+
+        nextSequence();
+        playSequence();
+    }
+
+    document.getElementById("newgame").addEventListener("click", startNewGame);
+
+    startNewGame();
 </script>
 
 </body>
