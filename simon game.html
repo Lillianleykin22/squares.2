@@ -146,11 +146,17 @@
         }, 300);
     }
     function playSequence() {
+        gameActive = false;
+
         for (let i = 0; i < gameSequence.length; i++) {
             setTimeout(function() {
                 flashButton(gameSequence[i]);
             }, i * 600);
         }
+
+        setTimeout(function() {
+            gameActive = true;
+        }, gameSequence.length * 600);
     }
     let currentLevel = 0;
     let gameActive = true;
