@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>משחק סיימון</title>
+</head>
+<body>
+<div id="gamestart"></div>
+<div id="score"></div>
+<div id="gameover"></div>
+<div id = "newgame"></div>
+<div id = "buttonscontainer">
+    <div class="redbutton" id="red"></div>
+    <div class="greenbutton" id="green"></div>
+    <div class="bluebutton" id="blue"></div>
+    <div class="yellowbutton" id="yellow"></div>
+</div>
+
+<style>
+    body {
+        text-align: center;
+    }
+        #buttonscontainer {
+            display: grid;
+            grid-template-columns: 150px 150px;
+            grid-template-rows: 150px 150px;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .redbutton{
+            background-color: red;
+            color: white;
+            border: black solid 2px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+    .greenbutton{
+        background-color: green;
+        color: white;
+        border: black solid 2px;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+    }
+    .bluebutton{
+        background-color: blue;
+        color: white;
+        border: black solid 2px;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+    }
+    .yellowbutton{
+        background-color: yellow;
+        color: white;
+        border: black solid 2px;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+    }
+    .flash {
+        opacity: 0.5;
+    }
+</style>
+<script>
+    let score = 0;
+    const colors = ["red", "green", "blue", "yellow"];
+    let gameSequence = [];
+    function getRandomColor() {
+        let randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    }
+    function nextSequence() {
+        let randomColor = getRandomColor();
+        gameSequence.push(randomColor);
+        console.log(gameSequence);
+    }
+    function flashButton(color) {
+        let button = document.getElementById(color);
+        button.classList.add("flash");
+        setTimeout(function() {
+            button.classList.remove("flash");
+        }, 300);
+    }
+    nextSequence();
+    flashButton(gameSequence[0]);
+</script>
+
+</body>
+</html>
